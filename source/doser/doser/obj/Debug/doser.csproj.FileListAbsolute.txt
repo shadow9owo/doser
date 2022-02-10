@@ -1,0 +1,6 @@
+C:\Users\hyneks pc\Desktop\doser\doser\bin\Debug\doser.exe
+C:\Users\hyneks pc\Desktop\doser\doser\bin\Debug\doser.pdb
+C:\Users\hyneks pc\Desktop\doser\doser\obj\Debug\doser.csproj.AssemblyReference.cache
+C:\Users\hyneks pc\Desktop\doser\doser\obj\Debug\doser.csproj.CoreCompileInputs.cache
+C:\Users\hyneks pc\Desktop\doser\doser\obj\Debug\doser.exe
+C:\Users\hyneks pc\Desktop\doser\doser\obj\Debug\doser.pdb
