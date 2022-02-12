@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Net.NetworkInformation;
 using System.Net;
-using System.Net.Security;
-using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 
@@ -35,7 +33,7 @@ namespace doser
             Console.WriteLine("shadowdev is not responsible for any kinds of damages");
             Console.WriteLine("if you are using this on an website then you must do it like this");
             Console.WriteLine(@"www.example.com not like this http:\\example.com\");
-            Console.WriteLine("doser v1.0.2");
+            Console.WriteLine("doser v1.0.0.3");
             Console.Write("enter valid ip adress/website: ");
             ip = Console.ReadLine();
             while (atv == true)
@@ -44,7 +42,7 @@ namespace doser
                 PingReply reply = p.Send(ip, 1000);
                 try
                 {
-                    Console.WriteLine("completed in: " + reply.RoundtripTime + "ms");
+                    Console.WriteLine("completed in: " + reply.RoundtripTime + "ms (ip adress : " + reply.Address +" )");
                     if (counter == 20)
                     {
                         Console.Clear();
