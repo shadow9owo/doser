@@ -36,15 +36,15 @@ namespace doser
             Console.WriteLine("if you are using this on an website then you must do it like this");
             Console.WriteLine(@"www.example.com not like this http:\\example.com\");
             Console.WriteLine("doser v1.0.2");
-            Console.Write("enter valid ip/website: ");
+            Console.Write("enter valid ip adress/website: ");
             ip = Console.ReadLine();
-            PingReply reply = p.Send(ip, 1000);
             while (atv == true)
             {
                 Thread.Sleep(10);
+                PingReply reply = p.Send(ip, 1000);
                 try
                 {
-                    Console.WriteLine("completed in:" + reply.RoundtripTime);
+                    Console.WriteLine("completed in: " + reply.RoundtripTime + "ms");
                     if (counter == 20)
                     {
                         Console.Clear();
