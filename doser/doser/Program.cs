@@ -13,15 +13,6 @@ namespace doser
 {
     class Program
     {
-        internal static class NativeMethods
-        {
-            [DllImport("user32.dll")]
-            public static extern bool RegisterHotKey(IntPtr windowHandle, int hotkeyId, uint modifierKeys, uint virtualKey);
-
-            [DllImport("user32.dll")]
-            public static extern bool UnregisterHotKey(IntPtr windowHandle, int hotkeyId);
-        }
-
         static void Main(string[] args)
         {
             l:
@@ -44,11 +35,12 @@ namespace doser
             Console.WriteLine("shadowdev is not responsible for any kinds of damages");
             Console.WriteLine("if you are using this on an website then you must do it like this");
             Console.WriteLine(@"www.example.com not like this http:\\example.com\");
-            Console.WriteLine("doser v1.0.0.4");
+            Console.WriteLine("doser v1.0.0.5");
             Console.Write("enter valid ip adress/website: ");
             ip = Console.ReadLine();
             while (atv == true)
             {
+                if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.E) break;
                 Thread.Sleep(10);
                 try
                 {
