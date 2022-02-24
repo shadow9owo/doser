@@ -69,13 +69,16 @@ namespace doser
                     }
                 }catch
                 {
-                    
-                }finally
-                {
                     atv = false;
-                    Console.WriteLine("host is unable to get a ping\nthere is a couple reasons why this is happening\nn.1 you or he/she is offline\nn.2 his server/computer crashed");
-                    Console.ReadLine();
-                    Console.Clear();
+                }
+                finally
+                {
+                    if (atv == false)
+                    {
+                        Console.WriteLine("\nhost is unable to get a ping\nthere is a couple reasons why this is happening\nn.1 you or the host is offline\nn.2 the hosts system crashed");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
                 }
             }
             goto l;
