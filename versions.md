@@ -4,6 +4,9 @@ version: 1.0.0.4
 
 console bugfix
 
+version: 1.0.0.5
+
+e to cancel added
 
 # links:
 <a href="http://shadowstudios.rf.gd/" style="color: blue;">our website</a>
