@@ -8,11 +8,15 @@ using System.IO;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
+using System.Diagnostics;
 
 namespace doser
 {
     class Program
     {
+        static string ip;
+        static Ping p = new Ping();
+        static PingReply reply;
         static void Main(string[] args)
         {
             l:
@@ -22,9 +26,7 @@ namespace doser
             string logo1 = @"|  \   /  \   /    |__  | \";
             string logo2 = @"|   | |    |  \_   |__  |_/";
             string logo3 = @"|__/   \__/   __/  |__  | \";
-            string ip;
             Console.Title = "doser";
-            Ping p = new Ping();
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
@@ -35,16 +37,38 @@ namespace doser
             Console.WriteLine("shadowdev is not responsible for any kinds of damages");
             Console.WriteLine("if you are using this on an website then you must do it like this");
             Console.WriteLine(@"www.example.com not like this http:\\example.com\");
-            Console.WriteLine("doser v1.0.0.5");
+            Console.WriteLine("write commands to show commands");
+            Console.WriteLine("doser v1.0.0.6");
             Console.Write("enter valid ip adress/website: ");
             ip = Console.ReadLine();
+            if (ip == "commands")
+            {
+                ip = "";
+                Console.WriteLine($"\n'about' shows what is new\n'exit' exits\n'commands' shows commands");
+                Console.ReadLine();
+                Console.Clear();
+                goto l;
+            }
+            if (ip == "about")
+            {
+                ip = "";
+                Console.WriteLine("\ndoser is a minimalistic dosing tool\n\ncreated by shadowdev");
+                Console.ReadLine();
+                Console.Clear();
+                goto l;
+            }
+            if (ip == "exit")
+            {
+                ip = "";
+                Environment.Exit(0);
+            }
             while (atv == true)
             {
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.E) break;
-                Thread.Sleep(10);
                 try
                 {
-                    PingReply reply = p.Send(ip, 10000);
+                    reply = p.Send(ip, 10000);
+                    Thread.Sleep(10);
                     Console.WriteLine("ip adress: " + reply.Address + ") completed in:"  + reply.RoundtripTime + "ms");
                     if (counter == 20)
                     {
@@ -57,7 +81,13 @@ namespace doser
                     }
                     else
                     {
-                        counter++;
+                        if (reply.RoundtripTime == 0)
+                        {
+                            atv = false;
+                        }else
+                        {
+                            counter++;
+                        }
                     }
                 }catch
                 {
